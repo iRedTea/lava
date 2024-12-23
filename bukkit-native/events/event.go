@@ -2,8 +2,8 @@ package events
 
 import "github.com/iRedTea/lava/bukkit-native/events/event_types"
 
-type Event interface {
-	Type() event_types.EventType
+type Event struct {
+	Type event_types.EventType
 }
 
 type Cancellable interface {
@@ -12,5 +12,6 @@ type Cancellable interface {
 }
 
 type Registry interface {
-	Register(handler func(event Event), eventType event_types.EventType)
+	Register(handler func(event *Event), eventType event_types.EventType)
+	Invoke(event *Event)
 }

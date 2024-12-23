@@ -1,10 +1,11 @@
 package bukkit_native
 
-import "github.com/google/uuid"
+import (
+	"github.com/google/uuid"
+)
 
 type OfflinePlayer interface {
 	Entity
-	Name() string
 	IsOnline() bool
 }
 

@@ -1,30 +1,20 @@
 package events
 
 import (
-	b "github.com/iRedTea/lava/bukkit-native"
-	"github.com/iRedTea/lava/bukkit-native/events/event_types"
+	bukkit "github.com/iRedTea/lava/bukkit-native"
 )
 
 type PlayerEvent struct {
-	Player b.Player
+	Event
+	Player bukkit.Player
 }
 
-// JOIN
-
 type PlayerJoinEvent struct {
+	PlayerEvent
 	JoinMessage string
 }
 
-func (e *PlayerJoinEvent) Type() event_types.EventType {
-	return event_types.PlayerJoinEvent
-}
-
-// QUIT
-
 type PlayerQuitEvent struct {
+	PlayerEvent
 	QuitMessage string
-}
-
-func (e *PlayerQuitEvent) Type() event_types.EventType {
-	return event_types.PlayerQuitEvent
 }
