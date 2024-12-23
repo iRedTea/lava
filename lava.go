@@ -11,4 +11,4 @@ type Module interface {
 	Name() string
 }
 
-var LavaAPI Lava = Lava{"1.0"}
+var LavaAPI *Lava = &Lava{"1.0"}
