@@ -3,6 +3,7 @@ package craft_native_bukkit
 import (
 	"github.com/google/uuid"
 	bukkit "github.com/iRedTea/lava/bukkit-native"
+	"github.com/iRedTea/lava/bukkit-native/craft_native_bukkit/hook"
 )
 
 type CraftPlayer struct {
@@ -16,7 +17,7 @@ func (c *CraftPlayer) IsOnline() bool {
 }
 
 func (c *CraftPlayer) SendMessage(message string) {
-	go SendMessageToPlayerHook(c.UniqueID(), message)
+	go hook.SendMessageToPlayerHook(c.UniqueID(), message)
 }
 
 func NewCraftPlayer(uniqueId uuid.UUID, name string) *CraftPlayer {
