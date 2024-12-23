@@ -17,7 +17,7 @@ func (c *CraftPlayer) IsOnline() bool {
 }
 
 func (c *CraftPlayer) SendMessage(message string) {
-	go hook.SendMessageToPlayerHook(c.UniqueID(), message)
+	go hook.HOOKS.SendMessageToPlayerHook(c.UniqueID(), message)
 }
 
 func NewCraftPlayer(uniqueId uuid.UUID, name string) *CraftPlayer {
