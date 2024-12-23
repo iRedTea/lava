@@ -1,10 +1,10 @@
 package craft_native_bukkit
 
 import (
+	"fmt"
 	"github.com/google/uuid"
-	"unsafe"
+	bukkit "github.com/iRedTea/lava/bukkit-native"
 )
-import "C"
 
 type BukkitHooks interface {
 	SendMessageToPlayerHook(playerId uuid.UUID, message string)
@@ -12,9 +12,8 @@ type BukkitHooks interface {
 
 var HOOKS BukkitHooks
 
-//export LoadNativeBukkit
-func LoadNativeBukkit(bukkitVersion string, hooks BukkitHooks) unsafe.Pointer {
+func LoadNativeBukkit(bukkitVersion string, hooks BukkitHooks) bukkit.Bukkit {
+	fmt.Println("Loading Native Bukkit...")
 	HOOKS = hooks
-	info := NewCraftBukkitInfo(bukkitVersion)
-	return unsafe.Pointer(NewCraftBukkit(info))
+	return NewCraftBukkit(NewCraftBukkitInfo(bukkitVersion))
 }
