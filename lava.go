@@ -3,8 +3,9 @@ package lava
 import bukkit "github.com/iRedTea/lava/bukkit-native"
 
 type Lava struct {
-	Version string
-	Bukkit  bukkit.Bukkit
+	Version     string
+	Bukkit      bukkit.Bukkit
+	TempContext Context
 }
 
 type Context struct {
