@@ -1,7 +1,6 @@
 package craft_native_bukkit
 
 import (
-	"fmt"
 	bukkit "github.com/iRedTea/lava/bukkit-native"
 	"github.com/iRedTea/lava/bukkit-native/events"
 )
@@ -10,10 +9,9 @@ var ConsoleCommandSender bukkit.CommandSender = &CraftConsoleSender{}
 
 type CraftBukkit struct {
 	bukkit.Bukkit
-	bukkitInfo  bukkit.BukkitInfo
-	registry    events.Registry
-	players     bukkit.PlayerList
-	fingerprint string
+	bukkitInfo bukkit.BukkitInfo
+	registry   events.Registry
+	players    bukkit.PlayerList
 }
 
 func (c *CraftBukkit) BukkitInfo() bukkit.BukkitInfo {
@@ -23,23 +21,16 @@ func (c *CraftBukkit) Players() bukkit.PlayerList {
 	return c.players
 }
 func (c *CraftBukkit) ConsoleCommandSender() bukkit.CommandSender {
-	fmt.Println("[1] SENDER CHECK 1")
-	fmt.Println("[1] SENDER NAME " + ConsoleCommandSender.Name())
 	return ConsoleCommandSender
-}
-
-func (c *CraftBukkit) FPR() string {
-	return c.fingerprint
 }
 
 var Instance *CraftBukkit
 
 func NewCraftBukkit(newBukkitInfo *CraftBukkitInfo) *CraftBukkit {
 	Instance = &CraftBukkit{
-		bukkitInfo:  newBukkitInfo,
-		registry:    &CraftRegistry{},
-		players:     NewCraftPlayerList(),
-		fingerprint: "callback231",
+		bukkitInfo: newBukkitInfo,
+		registry:   &CraftRegistry{},
+		players:    NewCraftPlayerList(),
 	}
 	return Instance
 }
