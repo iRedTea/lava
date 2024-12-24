@@ -2,6 +2,7 @@ package craft_native_bukkit
 
 import (
 	"fmt"
+
 	"github.com/google/uuid"
 	bukkit "github.com/iRedTea/lava/bukkit-native"
 )

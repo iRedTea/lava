@@ -12,7 +12,7 @@ type CraftBukkit struct {
 	bukkitInfo  bukkit.BukkitInfo
 	registry    events.Registry
 	players     bukkit.PlayerList
-	Fingerprint string
+	fingerprint string
 }
 
 func (c *CraftBukkit) BukkitInfo() bukkit.BukkitInfo {
@@ -25,6 +25,10 @@ func (c *CraftBukkit) ConsoleCommandSender() bukkit.CommandSender {
 	return consoleCommandSender
 }
 
+func (c *CraftBukkit) FPR() string {
+	return c.fingerprint
+}
+
 var Instance *CraftBukkit
 
 func NewCraftBukkit(newBukkitInfo *CraftBukkitInfo) *CraftBukkit {
@@ -32,7 +36,7 @@ func NewCraftBukkit(newBukkitInfo *CraftBukkitInfo) *CraftBukkit {
 		bukkitInfo:  newBukkitInfo,
 		registry:    &CraftRegistry{},
 		players:     NewCraftPlayerList(),
-		Fingerprint: "callback231",
+		fingerprint: "callback231",
 	}
 	return Instance
 }
