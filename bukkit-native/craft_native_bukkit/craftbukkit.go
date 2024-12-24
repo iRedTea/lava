@@ -15,7 +15,7 @@ type CraftBukkit struct {
 	fingerprint string
 }
 
-func (c *CraftBukkit) BukkitInfo() bukkit.BukkitInfo {
+func (c CraftBukkit) BukkitInfo() bukkit.BukkitInfo {
 	return c.bukkitInfo
 }
 func (c *CraftBukkit) Players() bukkit.PlayerList {
