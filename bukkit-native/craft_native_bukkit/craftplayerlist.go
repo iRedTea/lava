@@ -23,7 +23,7 @@ func (c *CraftPlayerList) All() []bukkit.Player {
 }
 
 // return join message
-func (c *CraftPlayerList) join(uniqueId uuid.UUID, name string, message string) string {
+func (c *CraftPlayerList) Join(uniqueId uuid.UUID, name string, message string) string {
 	player := NewCraftPlayer(uniqueId, name)
 	player.IsOnline_ = true
 	c.onlinePlayersById[uniqueId] = player
@@ -41,7 +41,7 @@ func (c *CraftPlayerList) join(uniqueId uuid.UUID, name string, message string) 
 }
 
 // return quit message
-func (c *CraftPlayerList) quit(uniqueId uuid.UUID, message string) string {
+func (c *CraftPlayerList) Quit(uniqueId uuid.UUID, message string) string {
 	c.onlinePlayersById[uniqueId].IsOnline_ = false
 	delete(c.onlinePlayersById, uniqueId)
 	i := 0
