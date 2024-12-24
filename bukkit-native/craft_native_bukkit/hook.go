@@ -13,7 +13,11 @@ type BukkitHooks interface {
 var HOOKS BukkitHooks
 
 func LoadNativeBukkit(bukkitVersion string, hooks BukkitHooks) bukkit.Bukkit {
-	fmt.Println("Loading Native Bukkit from lava...")
+	fmt.Println("Loading Native Bukkit from lava... Version of bukkit: " + bukkitVersion)
 	HOOKS = hooks
+	if HOOKS == nil {
+		fmt.Println("hooks could not be nil")
+		return nil
+	}
 	return NewCraftBukkit(NewCraftBukkitInfo(bukkitVersion))
 }
