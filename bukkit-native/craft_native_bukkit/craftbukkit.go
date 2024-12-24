@@ -1,11 +1,12 @@
 package craft_native_bukkit
 
 import (
+	"fmt"
 	bukkit "github.com/iRedTea/lava/bukkit-native"
 	"github.com/iRedTea/lava/bukkit-native/events"
 )
 
-var consoleCommandSender bukkit.CommandSender = &CraftConsoleSender{}
+var ConsoleCommandSender bukkit.CommandSender = &CraftConsoleSender{}
 
 type CraftBukkit struct {
 	bukkit.Bukkit
@@ -22,7 +23,9 @@ func (c *CraftBukkit) Players() bukkit.PlayerList {
 	return c.players
 }
 func (c *CraftBukkit) ConsoleCommandSender() bukkit.CommandSender {
-	return consoleCommandSender
+	fmt.Println("[1] SENDER CHECK 1")
+	fmt.Println("[1] SENDER NAME " + ConsoleCommandSender.Name())
+	return ConsoleCommandSender
 }
 
 func (c *CraftBukkit) FPR() string {
@@ -52,8 +55,4 @@ func (c *CraftBukkitInfo) BukkitVersion() string {
 
 func NewCraftBukkitInfo(newVersion string) CraftBukkitInfo {
 	return CraftBukkitInfo{version: newVersion}
-}
-
-func initialize() {
-
 }
