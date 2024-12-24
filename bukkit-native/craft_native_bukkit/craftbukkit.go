@@ -5,7 +5,7 @@ import (
 	"github.com/iRedTea/lava/bukkit-native/events"
 )
 
-var consoleCommandSender = &CraftConsoleSender{}
+var consoleCommandSender bukkit.CommandSender = &CraftConsoleSender{}
 
 type CraftBukkit struct {
 	bukkit.Bukkit
@@ -48,10 +48,6 @@ type CraftBukkitInfo struct {
 
 func (c *CraftBukkitInfo) BukkitVersion() string {
 	return c.version
-}
-
-func (c *CraftBukkitInfo) ConsoleCommandSender() bukkit.CommandSender {
-	return consoleCommandSender
 }
 
 func NewCraftBukkitInfo(newVersion string) CraftBukkitInfo {
