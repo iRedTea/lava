@@ -32,7 +32,7 @@ func NewCraftBukkit(newBukkitInfo *CraftBukkitInfo) *CraftBukkit {
 		bukkitInfo:  newBukkitInfo,
 		registry:    &CraftRegistry{},
 		players:     NewCraftPlayerList(),
-		fingerprint: "callback231",
+		Fingerprint: "callback231",
 	}
 	return Instance
 }
