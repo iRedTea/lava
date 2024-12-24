@@ -12,7 +12,7 @@ type CraftBukkit struct {
 	bukkitInfo  bukkit.BukkitInfo
 	registry    events.Registry
 	players     bukkit.PlayerList
-	fingerprint string
+	Fingerprint string
 }
 
 func (c *CraftBukkit) BukkitInfo() bukkit.BukkitInfo {
