@@ -9,9 +9,10 @@ var consoleCommandSender = &CraftConsoleSender{}
 
 type CraftBukkit struct {
 	bukkit.Bukkit
-	bukkitInfo bukkit.BukkitInfo
-	registry   events.Registry
-	players    bukkit.PlayerList
+	bukkitInfo  bukkit.BukkitInfo
+	registry    events.Registry
+	players     bukkit.PlayerList
+	fingerprint string
 }
 
 func (c *CraftBukkit) BukkitInfo() bukkit.BukkitInfo {
@@ -28,9 +29,10 @@ var Instance *CraftBukkit
 
 func NewCraftBukkit(newBukkitInfo *CraftBukkitInfo) *CraftBukkit {
 	Instance = &CraftBukkit{
-		bukkitInfo: newBukkitInfo,
-		registry:   &CraftRegistry{},
-		players:    NewCraftPlayerList(),
+		bukkitInfo:  newBukkitInfo,
+		registry:    &CraftRegistry{},
+		players:     NewCraftPlayerList(),
+		fingerprint: "callback231",
 	}
 	return Instance
 }
@@ -48,8 +50,8 @@ func (c *CraftBukkitInfo) ConsoleCommandSender() bukkit.CommandSender {
 	return consoleCommandSender
 }
 
-func NewCraftBukkitInfo(newVersion string) *CraftBukkitInfo {
-	return &CraftBukkitInfo{version: newVersion}
+func NewCraftBukkitInfo(newVersion string) CraftBukkitInfo {
+	return CraftBukkitInfo{version: newVersion}
 }
 
 func initialize() {
