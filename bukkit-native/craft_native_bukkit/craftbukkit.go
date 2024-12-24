@@ -1,7 +1,6 @@
 package craft_native_bukkit
 
 import (
-	"fmt"
 	bukkit "github.com/iRedTea/lava/bukkit-native"
 	"github.com/iRedTea/lava/bukkit-native/events"
 )
@@ -27,13 +26,9 @@ func (c *CraftBukkit) ConsoleCommandSender() bukkit.CommandSender {
 
 var Instance *CraftBukkit
 
-func NewCraftBukkit(bukkitInfo *CraftBukkitInfo) *CraftBukkit {
-	if bukkitInfo == nil {
-		fmt.Println("bukkit info could not be nil")
-		return nil
-	}
+func NewCraftBukkit(newBukkitInfo *CraftBukkitInfo) *CraftBukkit {
 	Instance = &CraftBukkit{
-		bukkitInfo: bukkitInfo,
+		bukkitInfo: newBukkitInfo,
 		registry:   &CraftRegistry{},
 		players:    NewCraftPlayerList(),
 	}
@@ -53,8 +48,8 @@ func (c *CraftBukkitInfo) ConsoleCommandSender() bukkit.CommandSender {
 	return consoleCommandSender
 }
 
-func NewCraftBukkitInfo(version string) *CraftBukkitInfo {
-	return &CraftBukkitInfo{version: version}
+func NewCraftBukkitInfo(newVersion string) *CraftBukkitInfo {
+	return &CraftBukkitInfo{version: newVersion}
 }
 
 func initialize() {

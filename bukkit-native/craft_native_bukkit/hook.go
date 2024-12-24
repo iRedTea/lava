@@ -19,5 +19,10 @@ func LoadNativeBukkit(bukkitVersion string, hooks BukkitHooks) bukkit.Bukkit {
 		fmt.Println("hooks could not be nil")
 		return nil
 	}
-	return NewCraftBukkit(NewCraftBukkitInfo(bukkitVersion))
+	bukkitInfo := NewCraftBukkitInfo(bukkitVersion)
+	if bukkitInfo == nil {
+		fmt.Println("bukkitInfo could not be nil")
+		return nil
+	}
+	return NewCraftBukkit(bukkitInfo)
 }
