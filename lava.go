@@ -5,7 +5,13 @@ import bukkit "github.com/iRedTea/lava/bukkit-native"
 type Lava struct {
 	Version string
 	Bukkit  bukkit.Bukkit
-	Modules []Module
+}
+
+type Context struct {
+	OnEnable  func()
+	OnDisable func()
+	OnLoad    func()
+	Name      func() string
 }
 
 type Module interface {
