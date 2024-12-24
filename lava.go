@@ -1,7 +1,10 @@
 package lava
 
+import bukkit "github.com/iRedTea/lava/bukkit-native"
+
 type Lava struct {
 	Version string
+	Bukkit  bukkit.Bukkit
 }
 
 type Module interface {
@@ -11,4 +14,4 @@ type Module interface {
 	Name() string
 }
 
-var LavaAPI *Lava = &Lava{"1.0"}
+var LavaAPI *Lava = &Lava{}
