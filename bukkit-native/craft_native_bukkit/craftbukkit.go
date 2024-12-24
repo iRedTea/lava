@@ -46,7 +46,7 @@ type CraftBukkitInfo struct {
 	version string
 }
 
-func (c *CraftBukkitInfo) GetVersion() string {
+func (c *CraftBukkitInfo) BukkitVersion() string {
 	return c.version
 }
 
